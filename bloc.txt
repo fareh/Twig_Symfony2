@@ -1,0 +1,73 @@
+
+# clear cache :
+$php app/console cache:clear --env=prod --no-debug
+
+# pour controler les routes 
+$php app/console router:debug
+#publier les ressources dans le répertoire web/
+$php app/console assets:install web/
+
+#create a bundle 
+$php app/console generate:bundle --namespace=Acme/HelloBundle --format=yml
+
+/*
+Entrez la commande : $php app/console generate:bundle. Le générateur vous demande alors de renseigner plusieurs options :
+
+    Bundle Namespace : MyApp/FilmothequeBundle  Choisir le namespace  « Sdz » est le namespace racine
+    « Blog » est le nom du bundle en lui-même : 
+    « Bundle » est le suffixe obligatoire.
+    Bundle Name : MyAppFilmothequeBundle //Choisir le nom de votre bundle
+    Target Directory : src //3. Choisir la destination des fichiers bundles
+    Configuration format : yml //Choisir le format de configuration
+    Create directory structure : yes //Choisir quelle structure générer
+    Do you confirm generation : yes // confirmation
+    Confirm automatic update of your Kernel : yes
+    Confirm automatic update of the Rooting : yes
+	*/
+	# Générer les entités avec Symfony2: 
+	Pour générer une entité , on exécute la commande suivante :
+	$php app/console generate:doctrine:entity;
+	pour finir la génération , il y'a quelques options à remplir :
+	
+	The Entity shortcut name:  SdzBlogBundle:Article ; // ici article 
+    Configuration format (yml, xml, php, or annotation) [annotation]: Appuyez juste sur la touche Entrée ;
+    New field name (press <return> to stop adding fields): date ;
+    Field type [string]:types possibles : array, object, boolean, integer, smallint, bigint, string, text, datetime, datetimetz, date,    time, decimal, et float. Tapez donc datetime ;
+    Lorsque vous avez fini, appuyez sur la touche Entrée ;
+    Do you want to generate an empty repository class [no]? : yes;
+	
+	# Manupuler tables et basse de donnés:
+	/* creation base de donneés */ 
+	$php app/console doctrine:database:create
+	
+	/* Comparer la base de donneés atuelle avec ce quelle devrait etre , ainsi elle affiche les réquettes à exécuter pour passer à ma nouvelle base de donneé  */
+	$php app/console doctrine:schema:update --dump-sql
+	
+	/* Exécuter les requettes  */
+	$php app/console doctrine:schema:update --force
+	
+	
+	# générer les CRUD avec la console symfony2:
+	
+	pour effectuer les actions CRUD à une entité "article par exemple ", On éxecute la commande suivante:
+	$php app/console generate:doctrine:crud
+	la génération vous demande de renseigner plusieurs optons :
+	The Entity shortcut name:  SdzBlogBundle:Article ;
+    Do you want to generate the "write" actions [no]? :yes ;
+    Configuration format (yml, xml, php, or annotation) [annotation]: yml ;
+    Routes prefix [/article]:  Appuyez simplement sur Entrée ;
+    Do you confirm generation [yes]? yes;
+    Confirm automatic update of the Routing [yes]? Non ;
+	
+	
+	Link: 
+	1) http://j-place.developpez.com/tutoriels/php/creer-premiere-application-web-avec-symfony2/
+	2) http://symfony.com/doc/current/book/page_creation.html
+	3) http://www.lafermeduweb.net/tutorial/symfony2-les-bundles-et-la-structure-des-fichiers-p91.html
+	4) http://knpbundles.com/ ( bundles à télécharger ).
+	
+	1er article : Installation et configuration d'un projet symfony2 en local.
+	
+	2 eme article : générer des bundles dans symfony2
+	
+	3 emme article : Création des pages dans Symfony2

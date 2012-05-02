@@ -1,0 +1,7 @@
+DevSkillsBundle_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: DevSkillsBundle:Default:index }
+HelloSkills:
+    pattern:  /dev-skills 
+    defaults: { _controller: DevSkillsBundle:Article:index }
+

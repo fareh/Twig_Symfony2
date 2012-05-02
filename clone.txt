@@ -1,0 +1,20 @@
+$git config --global color.diff auto
+$git config --global color.status auto
+$git config --global color.branch auto
+$git config --global user.name "fareh"
+$git config --global user.email fareh.nasreddine@gmail.com
+mot de passe : 08596113fareh
+$git checkout
+$cd project 
+$git init
+$git clone http://github.com/symfony/symfony.git
+$git init --bare // À exécuter sur le serveur.
+
+
+
+http://www.grafikart.fr/tutoriels/internet/git-github-131
+http://help.github.com/win-set-up-git/
+http://help.github.com/create-a-repo/
+http://help.github.com/fork-a-repo/
+http://help.github.com/be-social/
+
